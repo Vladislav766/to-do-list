@@ -24,7 +24,6 @@ addTaskButton.addEventListener('click', function () {
 })
 
 taskList.addEventListener('click', function (e) {
-	S
 	if (e.target.tagName === 'LI') {
 		e.target.classList.toggle('checked')
 		saveData()
@@ -46,7 +45,12 @@ taskList.addEventListener('click', function (e) {
 function saveData() {
 	localStorage.setItem('data', taskList.innerHTML)
 }
+
 function showTask() {
-	taskList.innerHTML = localStorage.getItem('data')
+	const data = localStorage.getItem('data')
+	if (data) {
+		taskList.innerHTML = data
+	}
 }
+
 showTask()
